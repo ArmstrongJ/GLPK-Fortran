@@ -1,0 +1,7 @@
+build
+modules
+
+*.mod
+*.a
+*.o
+*.txt
