@@ -1,0 +1,534 @@
+h1. glpk module
+
+h2. Procedures
+
+h3. glp_create_prob
+
+**function glp_create_prob() bind(C,name="glp_create_prob")**
+
+h4. Description
+
+Not available
+
+h4. Return
+
+**type(c_ptr)**
+
+Not available
+
+h3. glp_set_prob_name
+
+**subroutine glp_set_prob_name(prob,probname) bind(C,name="glp_set_prob_name")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|probname|character(c_char)||
+
+h3. glp_init_smcp
+
+**subroutine glp_init_smcp(parm_struct) bind(C,name="glp_init_smcp")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|parm_struct|type(glp_smcp)||
+
+h3. glp_init_iptcp
+
+**subroutine glp_init_iptcp(parm_struct) bind(C,name="glp_init_iptcp")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|parm_struct|type(glp_iptcp)||
+
+h3. glp_set_obj_dir
+
+**subroutine glp_set_obj_dir(prob,objdir) bind(C,name="glp_set_obj_dir")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|objdir|integer(c_int), value||
+
+h3. glp_add_rows
+
+**function glp_add_rows(prob,nrs) bind(C,name="glp_add_rows")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|nrs|integer(c_int), value||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_add_cols
+
+**function glp_add_cols(prob,ncs) bind(C,name="glp_add_cols")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|ncs|integer(c_int), value||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_set_obj_coef
+
+**subroutine glp_set_obj_coef(prob,j,coef) bind(C,name="glp_set_obj_coef")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|j|integer(c_int), value||
+|coef|real(c_double), value||
+
+h3. glp_set_row_bnds
+
+**subroutine glp_set_row_bnds(prob,i,itype,lb,ub) bind(C,name="glp_set_row_bnds")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|i|integer(c_int), value||
+|itype|integer(c_int), value||
+|lb|real(c_double), value||
+|ub|real(c_double), value||
+
+h3. glp_set_row_name
+
+**subroutine glp_set_row_name(prob,i,cname) bind(C,name="glp_set_row_name")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|i|integer(c_int), value||
+|cname|character(c_char)||
+
+h3. glp_set_col_bnds
+
+**subroutine glp_set_col_bnds(prob,j,itype,lb,ub) bind(C,name="glp_set_col_bnds")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|j|integer(c_int), value||
+|itype|integer(c_int), value||
+|lb|real(c_double), value||
+|ub|real(c_double), value||
+
+h3. glp_set_col_name
+
+**subroutine glp_set_col_name(prob,j,cname) bind(C,name="glp_set_col_name")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|j|integer(c_int), value||
+|cname|character(c_char)||
+
+h3. glp_set_col_kind
+
+**subroutine glp_set_col_kind(prob,j,ikind) bind(C,name="glp_set_col_kind")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|j|integer(c_int), value||
+|ikind|integer(c_int), value||
+
+h3. glp_load_matrix
+
+**subroutine glp_load_matrix(prob,ne,ia,ja,ar) bind(C,name="glp_load_matrix")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|ne|integer(c_int), value||
+|ia|integer(c_int)||
+|ja|integer(c_int)||
+|ar|real(c_double)||
+
+h3. glp_adv_basis
+
+**subroutine glp_adv_basis(prob,flag) bind(C,name="glp_adv_basis")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|flag|integer(c_int), value||
+
+h3. glp_cpx_basis
+
+**subroutine glp_cpx_basis(prob) bind(C,name="glp_cpx_basis")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+
+h3. glp_simplex
+
+**function glp_simplex(prob,parm) bind(C,name="glp_simplex")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|parm|type(glp_smcp)||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_interior
+
+**function glp_interior(prob,parm) bind(C,name="glp_interior")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|parm|type(glp_iptcp)||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_write_lp
+
+**function glp_write_lp(prob,parm,fname) bind(C,name="glp_write_lp")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|parm|integer(c_int)||
+|fname|character(c_char)||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_get_status
+
+**function glp_get_status(prob) bind(C,name="glp_get_status")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_ipt_status
+
+**function glp_ipt_status(prob) bind(C,name="glp_ipt_status")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_get_obj_val
+
+**function glp_get_obj_val(prob) bind(C,name="glp_get_obj_val")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+
+h4. Return
+
+**real(c_double)**
+
+Not available
+
+h3. glp_ipt_obj_val
+
+**function glp_ipt_obj_val(prob) bind(C,name="glp_ipt_obj_val")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+
+h4. Return
+
+**real(c_double)**
+
+Not available
+
+h3. glp_get_col_prim
+
+**function glp_get_col_prim(prob,j) bind(C,name="glp_get_col_prim")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|j|integer(c_int), value||
+
+h4. Return
+
+**real(c_double)**
+
+Not available
+
+h3. glp_ipt_col_prim
+
+**function glp_ipt_col_prim(prob,j) bind(C,name="glp_ipt_col_prim")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|j|integer(c_int), value||
+
+h4. Return
+
+**real(c_double)**
+
+Not available
+
+h3. glp_erase_prob
+
+**subroutine glp_erase_prob(prob) bind(C,name="glp_erase_prob")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+
+h3. glp_delete_prob
+
+**subroutine glp_delete_prob(prob) bind(C,name="glp_delete_prob")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+
+h3. glp_init_mpscp
+
+**subroutine glp_init_mpscp(parm) bind(C,name="glp_init_mpscp")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|parm|type(glp_mpscp)||
+
+h3. glp_read_mps
+
+**function glp_read_mps(prob, formt, parm, fname) bind(C,name="glp_read_mps")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|formt|integer(c_int), value||
+|parm|type(glp_mpscp)||
+|fname|character(c_char)||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_write_mps
+
+**function glp_write_mps(prob, formt, parm, fname) bind(C,name="glp_write_mps")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|formt|integer(c_int), value||
+|parm|type(glp_mpscp)||
+|fname|character(c_char)||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_print_sol
+
+**function glp_print_sol(prob, fname) bind(C,name="glp_print_sol")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|fname|character(c_char)||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+
+<div style="clear:all; width:100%; border-top:1px solid black;">
+p{color:red;font-size:small;}. Automatically generated by "embroider":https://github.com/ArmstrongJ/embroider
+</div>
