@@ -208,7 +208,8 @@ implicit none
         use ISO_C_BINDING
             type(c_ptr), value :: prob
         end subroutine
-
+        
+        ! initialize MPS format control parameters
         subroutine glp_init_mpscp(parm) bind(C,name="glp_init_mpscp")
         use ISO_C_BINDING
         use glpk_types
@@ -235,6 +236,7 @@ implicit none
             character(c_char) :: fname(*)
         end function glp_write_mps
 
+        ! write basic solution in printable format
         function glp_print_sol(prob, fname) bind(C,name="glp_print_sol")
         use ISO_C_BINDING
             integer(c_int) :: glp_print_sol
@@ -242,6 +244,76 @@ implicit none
             character(c_char) :: fname(*)
         end function glp_print_sol
 
+        ! write interior-point solution in printable format
+        function glp_print_ipt(prob, fname) bind(C,name="glp_print_ipt")
+        use ISO_C_BINDING
+            integer(c_int) :: glp_print_ipt
+            type(c_ptr), value :: prob
+            character(c_char) :: fname(*)
+        end function glp_print_ipt
+
+        ! allocate the MathProg translator workspace 
+        function glp_mpl_alloc_wksp() bind(C,name="glp_mpl_alloc_wksp")
+        use ISO_C_BINDING
+            type(c_ptr) :: glp_mpl_alloc_wksp
+        end function glp_mpl_alloc_wksp
+
+        ! read and translate model section 
+        function glp_mpl_read_model(tran, fname, skip) bind(C,name="glp_mpl_read_model")
+        use ISO_C_BINDING
+            integer(kind=c_int) :: glp_mpl_read_model
+            type(c_ptr), value :: tran
+            character(c_char) :: fname(*)
+            integer(kind=c_int), value :: skip
+        end function glp_mpl_read_model
+
+        ! read and translate data section
+        function glp_mpl_read_data(tran, fname) bind(C,name="glp_mpl_read_data")
+        use ISO_C_BINDING
+            integer(kind=c_int) :: glp_mpl_read_data
+            type(c_ptr), value :: tran
+            character(c_char) :: fname(*)
+        end function glp_mpl_read_data
+
+        ! generate the model
+        function glp_mpl_generate_c(tran, fname) bind(C,name="glp_mpl_generate")
+        use ISO_C_BINDING
+            integer(kind=c_int) :: glp_mpl_generate_c
+            type(c_ptr), value :: tran
+            type(c_ptr) :: fname(*)
+        end function glp_mpl_generate_c
+    
+        subroutine glp_mpl_build_prob(tran, prob) bind(C,name="glp_mpl_build_prob")
+        use ISO_C_BINDING
+            type(c_ptr), value :: tran
+            type(c_ptr), value :: prob
+        end subroutine glp_mpl_build_prob
+
+        ! free the MathProg translator workspace
+        subroutine glp_mpl_free_wksp(tran) bind(C,name="glp_mpl_free_wksp")
+        use ISO_C_BINDING
+            type(c_ptr), value :: tran
+        end subroutine glp_mpl_free_wksp
+
     end interface
+    
+    contains
+    
+        ! Fortran interface to generate model
+        function glp_mpl_generate(tran, fname)
+        use ISO_C_BINDING
+        implicit none
+        
+        integer(kind=c_int) :: glp_mpl_generate
+        type(c_ptr) :: tran
+        character, target, optional :: fname(*)
+        
+            if(present(fname)) then
+                glp_mpl_generate = glp_mpl_generate_c(tran, c_loc(fname))
+            else
+                glp_mpl_generate = glp_mpl_generate_c(tran, C_NULL_PTR)
+            end if
+            
+        end function glp_mpl_generate
     
 end module glpk

@@ -457,7 +457,8 @@ h3. glp_init_mpscp
 
 h4. Description
 
-Not available
+initialize MPS format control parameters
+
 
 h4. Arguments
 
@@ -514,7 +515,8 @@ h3. glp_print_sol
 
 h4. Description
 
-Not available
+write basic solution in printable format
+
 
 h4. Arguments
 
@@ -527,6 +529,136 @@ h4. Return
 **integer(c_int)**
 
 Not available
+
+h3. glp_print_ipt
+
+**function glp_print_ipt(prob, fname) bind(C,name="glp_print_ipt")**
+
+h4. Description
+
+write interior-point solution in printable format
+
+
+h4. Arguments
+
+|Argument|Type|Description|
+|prob|type(c_ptr), value||
+|fname|character(c_char)||
+
+h4. Return
+
+**integer(c_int)**
+
+Not available
+
+h3. glp_mpl_alloc_wksp
+
+**function glp_mpl_alloc_wksp() bind(C,name="glp_mpl_alloc_wksp")**
+
+h4. Description
+
+allocate the MathProg translator workspace
+
+
+h4. Return
+
+**type(c_ptr)**
+
+Not available
+
+h3. glp_mpl_read_model
+
+**function glp_mpl_read_model(tran, fname, skip) bind(C,name="glp_mpl_read_model")**
+
+h4. Description
+
+read and translate model section
+
+
+h4. Arguments
+
+|Argument|Type|Description|
+|tran|type(c_ptr), value||
+|fname|character(c_char)||
+|skip|integer(kind=c_int), value||
+
+h4. Return
+
+**integer(kind=c_int)**
+
+Not available
+
+h3. glp_mpl_read_data
+
+**function glp_mpl_read_data(tran, fname) bind(C,name="glp_mpl_read_data")**
+
+h4. Description
+
+read and translate data section
+
+
+h4. Arguments
+
+|Argument|Type|Description|
+|tran|type(c_ptr), value||
+|fname|character(c_char)||
+
+h4. Return
+
+**integer(kind=c_int)**
+
+Not available
+
+h3. glp_mpl_generate_c
+
+**function glp_mpl_generate_c(tran, fname) bind(C,name="glp_mpl_generate")**
+
+h4. Description
+
+generate the model
+
+
+h4. Arguments
+
+|Argument|Type|Description|
+|tran|type(c_ptr), value||
+|fname|type(c_ptr)||
+
+h4. Return
+
+**integer(kind=c_int)**
+
+Not available
+
+h3. glp_mpl_build_prob
+
+**subroutine glp_mpl_build_prob(tran, prob) bind(C,name="glp_mpl_build_prob")**
+
+h4. Description
+
+Not available
+
+h4. Arguments
+
+|Argument|Type|Description|
+|tran|type(c_ptr), value||
+|prob|type(c_ptr), value||
+
+h3. glp_mpl_free_wksp
+
+**subroutine glp_mpl_free_wksp(tran) bind(C,name="glp_mpl_free_wksp")**
+
+h4. Description
+
+free the MathProg translator workspace
+
+
+h4. Arguments
+
+|Argument|Type|Description|
+|tran|type(c_ptr), value||
+
+h1. glp_mpl_generate function
 
 
 <div style="clear:all; width:100%; border-top:1px solid black;">
