@@ -16,24 +16,24 @@ implicit none
     call glp_set_prob_name(lp, "sample"//C_NULL_CHAR)
     call glp_set_obj_dir(lp, GLP_MAX)
     
-    call glp_add_rows(lp, 3)
+    ret = glp_add_rows(lp, 3)
     call glp_set_row_name(lp, 1, "p"//C_NULL_CHAR)
-    call glp_set_row_bnds(lp, 1, GLP_UP, 0.0, 100.0)
+    call glp_set_row_bnds(lp, 1, GLP_UP, 0.0_8, 100.0_8)
     call glp_set_row_name(lp, 2, "q"//C_NULL_CHAR)
-    call glp_set_row_bnds(lp, 2, GLP_UP, 0.0, 600.0)
+    call glp_set_row_bnds(lp, 2, GLP_UP, 0.0_8, 600.0_8)
     call glp_set_row_name(lp, 3, "r"//C_NULL_CHAR)
-    call glp_set_row_bnds(lp, 3, GLP_UP, 0.0, 300.0)
+    call glp_set_row_bnds(lp, 3, GLP_UP, 0.0_8, 300.0_8)
     
-    call glp_add_cols(lp, 3)
+    ret = glp_add_cols(lp, 3)
     call glp_set_col_name(lp, 1, "x1"//C_NULL_CHAR)
-    call glp_set_col_bnds(lp, 1, GLP_LO, 0.0, 0.0)
-    call glp_set_obj_coef(lp, 1, 10.0)
+    call glp_set_col_bnds(lp, 1, GLP_LO, 0.0_8, 0.0_8)
+    call glp_set_obj_coef(lp, 1, 10.0_8)
     call glp_set_col_name(lp, 2, "x2"//C_NULL_CHAR)
-    call glp_set_col_bnds(lp, 2, GLP_LO, 0.0, 0.0)
-    call glp_set_obj_coef(lp, 2, 6.0)
+    call glp_set_col_bnds(lp, 2, GLP_LO, 0.0_8, 0.0_8)
+    call glp_set_obj_coef(lp, 2, 6.0_8)
     call glp_set_col_name(lp, 3, "x3"//C_NULL_CHAR)
-    call glp_set_col_bnds(lp, 3, GLP_LO, 0.0, 0.0)
-    call glp_set_obj_coef(lp, 3, 4.0)
+    call glp_set_col_bnds(lp, 3, GLP_LO, 0.0_8, 0.0_8)
+    call glp_set_obj_coef(lp, 3, 4.0_8)
     
     ! a[1,1] = 1
     ia(1) = 1
@@ -42,12 +42,12 @@ implicit none
     
     ! a[1,2] = 1
     ia(2) = 1
-    ja(2) = 1
+    ja(2) = 2
     ar(2) = 1.0
     
     ! a[1,3] = 1
     ia(3) = 1
-    ja(3) = 1
+    ja(3) = 3
     ar(3) = 1.0
     
     ! a[2,1] = 10

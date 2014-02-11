@@ -14,7 +14,7 @@ implicit none
     if(ret .NE. 0) then
         print *, "Error on translating model"
     else 
-        ret = glp_mpl_generate(tran)
+        ret = glp_mpl_generate(tran, fname="egypt.mpl"//C_NULL_CHAR)
         if(ret .NE. 0) then
             print *, "Error on generating model"
         else

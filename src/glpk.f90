@@ -280,7 +280,7 @@ implicit none
         use ISO_C_BINDING
             integer(kind=c_int) :: glp_mpl_generate_c
             type(c_ptr), value :: tran
-            type(c_ptr) :: fname(*)
+            type(c_ptr), value :: fname
         end function glp_mpl_generate_c
     
         subroutine glp_mpl_build_prob(tran, prob) bind(C,name="glp_mpl_build_prob")
@@ -306,7 +306,7 @@ implicit none
         
         integer(kind=c_int) :: glp_mpl_generate
         type(c_ptr) :: tran
-        character, target, optional :: fname(*)
+        character(c_char), target, optional :: fname(*)
         
             if(present(fname)) then
                 glp_mpl_generate = glp_mpl_generate_c(tran, c_loc(fname))
